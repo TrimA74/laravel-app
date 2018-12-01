@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+	    if(\Config::get('app.env') == 'production'){
+
+		    \URL::forceRootUrl(\Config::get('app.url'));
+	    }    
     }
 
     /**
